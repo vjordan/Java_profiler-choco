@@ -1,0 +1,1 @@
+firefox ProfilerClient/profiler.html & java -jar ProfilerChocoMock.jar

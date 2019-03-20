@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CHOCO Profiler</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+<!-- MENU HORIZONTAL EN HAUT DE L'ECRAN -->
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>C</b>P</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>CHOCO</b> Profiler</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li id='playBtn' class="dropdown play-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-play"></i>
+            </a>
+          </li>
+          <li id='pauseBtn' class="dropdown pause-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-pause"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+    </nav>
+  </header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="link-page active"><a href="#static"><i class="fa fa-pie-chart"></i><span>Static</span></a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-line-chart"></i>
+            <span>Dynamic</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="link-page"><a href="#dynamic-1"><i class="fa fa-circle-o"></i>Resolution</a></li>
+            <li class="link-page"><a href="#dynamic-2"><i class="fa fa-circle-o"></i>Tree</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </aside>
+
+  <!-- STATIC -->
+  <div id="static" class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        CHOCO Profiler
+        <small>Static data</small>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div id="block-variables"class="col-lg-3 col-xs-6">
+          <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3 id="nb-variables">0</h3>
+
+            <p>Variables</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-dot-circle-o"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div id="block-constraints" class="small-box bg-green">
+          <div class="inner">
+            <h3 id="nb-constraints">0</h3>
+
+            <p>Constraints</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-dot-circle-o"></i>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <div id="dynamic-1" class="content-wrapper hidden">
+    <section class="content-header">
+      <h1>
+        CHOCO Profiler
+        <small>Resolution</small>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+
+        <div id="block-solutions" class="col-lg-3 col-xs-6">
+            <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3 id="nb-solutions2">0</h3>
+
+              <p>Solutions</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+        <div id="block-fails" class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3 id="nb-fails2">0</h3>
+
+              <p>Fails</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+        <div id="block-blocks" class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3 id="nb-blocks2">0</h3>
+
+              <p>Blocks</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div id="block-nodes" class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3 id="nb-nodes2">0</h3>
+
+              <p>Nodes</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Constraints Uses</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="constraintUses" style="height:250px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+          <!-- LINE CHART -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Objective</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="objective" style="height:250px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+        </div>
+        <!-- /.col (RIGHT) -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+  </div>
+
+  <div id="dynamic-2" class="content-wrapper hidden">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        CHOCO Profiler
+        <small>Tree</small>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+
+        <div id="block-solutions" class="col-lg-3 col-xs-6">
+            <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3 id="nb-solutions">0</h3>
+
+              <p>Solutions</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div id="block-fails" class="small-box bg-green">
+            <div class="inner">
+              <h3 id="nb-fails">0</h3>
+
+              <p>Fails</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div id="block-blocks" class="small-box bg-yellow">
+            <div class="inner">
+              <h3 id="nb-blocks">0</h3>
+
+              <p>Blocks</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div id="block-nodes" class="small-box bg-red">
+            <div class="inner">
+              <h3 id="nb-nodes">0</h3>
+
+              <p>Nodes</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dot-circle-o"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Left-Right decisions</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <canvas id="lrDecisions" style="height:250px"></canvas>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Depth</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <canvas id="depth" style="height:250px"></canvas>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Free variables</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="freeVariables" style="height:250px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+        </div>
+        <!-- /.col (RIGHT) -->
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 1.0.0
+    </div>
+    <strong>Copyright &copy; 2017-2018 <a href="https://www.imt-atlantique.fr/">IMT Atlantique</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- ChartJS 1.0.1 -->
+<!--script src="plugins/chartjs/Chart.min.js"></script-->
+<script src="script/lib/Chart.bundle.js"></script>
+<!-- FastClick -->
+<script src="plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- page script -->
+
+<script src="script/profiler.js"></script>
+
+<script src="script/lib/socket.io.js"></script>
+<script src="script/lib/utils.js"></script>
+<script src="script/websocket.js"></script>
+<script src="script/simple_data.js"></script>
+
+<script src="script/chart/objective.js"></script>
+<script src="script/chart/lr_decisions.js"></script>
+<script src="script/chart/constraint_uses.js"></script>
+<script src="script/chart/freeVariables.js"></script>
+<script src="script/chart/depth.js"></script>
+
+</body>
+</html>
